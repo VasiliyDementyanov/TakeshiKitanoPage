@@ -53,7 +53,7 @@ class Movie extends React.Component {
 
  render() {
 	const {movie} = this.props
-	const style = {width: '50%'}
+	//const style = {width: '50%'}
 	//const body = isOpen && <section className="card-text">{article.text}</section>
 	return (
 		<div className = {styles.card}>

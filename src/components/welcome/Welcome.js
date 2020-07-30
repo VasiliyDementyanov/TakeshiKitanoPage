@@ -35,25 +35,41 @@ class Welcome extends React.Component {
 // }
 
 	render() {
-		const sectionStyle = this.state.onLinkEntered ?
-											 `${styles.contentWrapper} ${styles.darkBg}` : 
-											 `${styles.contentWrapper} ${styles.halfDarkBg}`
-		const textStyle = this.state.onLinkEntered ?
-										styles.textHovered :
-										styles.text
+		// const sectionStyle = this.state.onLinkEntered ?
+		// 									 `${styles.contentWrapper} ${styles.darkBg}` : 
+		// 									 `${styles.contentWrapper} ${styles.halfDarkBg}`
+		// const textStyle = this.state.onLinkEntered ?
+		// 								styles.textHovered :
+		// 								styles.text
 
   		return(
-			<section className={sectionStyle}>
-				<Link onMouseEnter={this.onLinkEnter} 
-					onMouseLeave={this.onLinkLeave} 
-					className={styles.linkWrapper} 
-					to='/Choice' >
-					<div className={textStyle}>Welcome to</div>
-					<div className={textStyle}>ようこそ</div>
-					<div className={textStyle}>Takeshi world</div>
-					<div className={textStyle}>武の世界</div>
-				</Link>
-			</section>
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<h1>WELCOME TO<br/>TAKESHI KITANO PAGE</h1>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<p>This page I have created in order to show you my knowledge of React, JavaScript, HTML, CSS.</p>
+					</div>
+				</div>
+			</div>
+			// <section>
+			// 	<h1>WELCOME TO<br/>TAKESHI KITANO PAGE</h1>
+			// 	<p>This page I have created in order to show you my knowledge of React, JavaScript, HTML, CSS.</p>
+			// </section>	
+			// <section className={sectionStyle}>
+			// 	<Link onMouseEnter={this.onLinkEnter} 
+			// 		onMouseLeave={this.onLinkLeave} 
+			// 		className={styles.linkWrapper} 
+			// 		to='/Choice' >
+			// 		<div className={textStyle}>Welcome to</div>
+			// 		<div className={textStyle}>ようこそ</div>
+			// 		<div className={textStyle}>Takeshi world</div>
+			// 		<div className={textStyle}>武の世界</div>
+			// 	</Link>
+			// </section>
 		);
  	}
 

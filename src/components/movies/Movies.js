@@ -92,9 +92,14 @@ class Movies extends React.Component {
 			//<div>
 			//	{body}
 			//</div>
-			<div>
-		 		{movieElements}
+			<div className="container-fluid">
+				<div className={styles.contentWrapper}>
+					{movieElements}
+				</div>
 			</div>
+			//<div>
+		 	//	{movieElements}
+			//</div>
 		)
 
 //   return(
