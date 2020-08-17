@@ -1,79 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 .card {
     display: flex;
 	flex-direction: column;
-	align-items: flex-start;
-    justify-content: center;
-    
-    width: 200px;
-    min-width: 200px;
 }
 
-.image {
+.poster {
     width:100%;
+    border-radius: 10px;
 }
 
-// .contentWrapper { 
-//   display: flex;
-// 	height: 100vh;
-// 	align-items: flex-start;
-// }
+.textWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-left: 15px;
+}
 
-// .lightBg {
-// 	background: linear-gradient( rgba(0,0,0,0), rgba(0, 0, 0, 0) ),
-// 	url('./movies.jpg') center no-repeat;
-// 	background-size: cover;
-// }
+.textWrapper > h2 {
+	font-family: 'Roboto', sans-serif;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 2vmax;
+    color: black;
+    margin:0;
+}
 
-// .halfDarkBg {
-// 	background: linear-gradient( rgba(0,0,0,0.5), rgba(0, 0, 0, 0.5) ),
-// 	url('./movies.jpg') center no-repeat;
-// 	background-size: cover;
-// }
+.textWrapper > p {
+	font-family: 'Open Sans', sans-serif;
+	font-style: normal;
+    font-weight: 400;
+    font-size: 1.2vmax;
+    color: black;
+    margin:0;
+}
 
-// .darkBg {
-// 	background: linear-gradient( rgba(0,0,0,1), rgba(0, 0, 0, 1) ),
-// 	url('./movies.jpg') center no-repeat;
-// 	background-size: cover;
-// }
 
-// .linkWrapper {
-// 	display: flex;
-// 	flex-direction: column;
-// 	align-items: flex-start;
-// 	justify-content: center;
-// 	text-decoration: none;
+$s-min: 20;
+$s-max: 70;
+$l-min: 30;
+$l-max: 90;
 
-// 	margin-left: 5vw;
-// }
-
-// .text { 
-// 	font-family: 'Noto Sans JP', sans-serif;
-// 	font-size: 8vw;
-// 	font-weight: 400;
-//   text-transform: uppercase;
-// 	color: white;
-// }
-
-// .textHovered {
-// 	font-family: 'Noto Sans JP', sans-serif;
-// 	font-size: 3vw;
-// 	font-weight: 400;
-// 	text-transform: uppercase;
-	
-//   --interval: 1s;
-//   display: block;
-//   text-shadow: 
-//     0 0 10px var(--color1),
-//     0 0 20px var(--color2),
-//     0 0 40px var(--color3),
-//     0 0 80px var(--color4);
-//   will-change: filter, color;
-//   filter: saturate(60%);
-// 	animation: flicker steps(100) var(--interval) 1s infinite;
-	
-// 	color: azure;
-//   --color1: azure;
-//   --color2: aqua;
-//   --color3: dodgerblue;
-//   --color4: blue;
-// }
+.fakePoster {
+    //background-color: yellow;
+    background-color: hsl(random(360),$s-min+random($s-max+-$s-min),$l-min+random($l-max+-$l-min));
+    //background-color: hsl(random(360),100%,50%);
+    height: 300px;
+    width: 200px;
+    width: 100%;
+}

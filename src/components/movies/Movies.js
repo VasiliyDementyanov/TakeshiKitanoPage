@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
 import styles from './Movies.scss';
 import Movie from '../movie/Movie'
 
@@ -7,7 +6,6 @@ class Movies extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			onLinkEntered: false,
 			imgSrc: '',
 			movies: [],
 			isFetching: true,
@@ -24,7 +22,7 @@ class Movies extends React.Component {
 					movies: data.crew.filter(movie => movie.department === "Directing"),
 					isFetching: false
 				})
-				console.log(false)
+				//console.log(false)
 			})
 			.catch((e) => {
 				console.log(e, "catch the hoop")
@@ -41,7 +39,7 @@ class Movies extends React.Component {
 				return response.blob()
 			})
 			.then((blob) => {
-				console.log(blob)
+				//console.log(blob)
 				this.setState({
 					imgSrc: URL.createObjectURL(blob)
 				})
@@ -74,7 +72,7 @@ class Movies extends React.Component {
 								<div>...Loading</div> :
 								<Movie movie = {this.state.movies[0]}/>
 		//if (error) return <div>{`Error: ${e.message}`}</div>
-		console.log(this.state.movies)
+		//console.log(this.state.movies)
 		
 		
 		const sectionStyle = this.state.onLinkEntered ?
@@ -148,7 +146,7 @@ class Movies extends React.Component {
 	// this.setState({
 	// 	onLinkEntered: false
 	// })
-	console.log(this.state.onLinkEntered);
+	//console.log(this.state.onLinkEntered);
  }
 }
 export default Movies
