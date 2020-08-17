@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
 //.contentWrapper { 
 //	display: flex;
 //	height: 100vh;
@@ -5,8 +7,35 @@
 //}
 
 .contentWrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-top: 40px;
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+.buttonWrapper {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+	font-family: 'Roboto', sans-serif;
+	font-style: normal;
+    font-weight: 500;
+    font-size: 1.2vmax;
+	//font-size: 7vmax;
+	//line-height: 8vmax;
+	color: black;
+}
+
+.buttonWrapper > p {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.moviesWrapper {
 	display: grid;
-    grid-gap: 20px;
+    grid-gap: 30px;
     grid-template-columns: repeat(4, 1fr);
 	width: 100%;
 	height: 100%;

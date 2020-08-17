@@ -90,8 +90,13 @@ class Movies extends React.Component {
 			//<div>
 			//	{body}
 			//</div>
-			<div className="container-fluid">
-				<div className={styles.contentWrapper}>
+			<div className={styles.contentWrapper}>
+				<div className={styles.buttonWrapper}>
+					<p>New</p>
+					<p>Old</p>
+					<p>Average vote</p>
+				</div>
+				<div className={styles.moviesWrapper}>
 					{movieElements}
 				</div>
 			</div>
