@@ -1,16 +1,18 @@
 import React from 'react';
+import axios from 'axios'
 import styles from './Movie.scss';
 
 class Movie extends React.Component {
  constructor(props) {
 		super(props)
 		this.state = {
-				isFetching: true,
+				isFetching: false,
 				posterSrc: '',	
 		}
  }
 
  componentDidMount() {
+	console.log("Component Movie did mount")
 	const monthNames = ["January", "February", "March", "April", "May", "June",
 	"July", "August", "September", "October", "November", "December"];
 	let d = new Date(this.props.movie.release_date)
@@ -31,6 +33,7 @@ class Movie extends React.Component {
 			return response.blob()
 		})
 		.then((blob) => {
+			console.log("Movie Fetched")
 			this.setState({
 				posterSrc: URL.createObjectURL(blob),
 				isFetching: false
@@ -43,6 +46,7 @@ class Movie extends React.Component {
 	}
 
  render() {
+	console.log("Movie rendered")
 	const {movie} = this.props
 	const {posterSrc, isFetching} = this.state
 

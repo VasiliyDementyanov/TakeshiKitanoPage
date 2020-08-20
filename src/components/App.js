@@ -4,7 +4,7 @@ import history 									 from '../history';
 
 import Header									 from './header/Header';
 import Welcome 									 from './welcome/Welcome';
-import Movies 									 from './movies/Movies';
+import MoviesHOC 							     from './moviesHOC/MoviesHOC';
 import Biography								 from './biography/Biography';
 
 class App extends React.Component {
@@ -14,7 +14,7 @@ class App extends React.Component {
 			<Header/>
 			<Switch>
 				<Route exact path="/" component={Welcome}/>
-				<Route exact path="/Movies" component={Movies}/>
+				<Route exact path="/Movies" component={MoviesHOC}/>
 				<Route exact path="/Biography" component={Biography}/>
 			</Switch>
      </Router>
