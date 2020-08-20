@@ -7,8 +7,16 @@
 }
 
 .poster {
-    width:100%;
+    width: 100%;
     border-radius: 10px;
+}
+
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: rgb(241, 242, 243);
 }
 
 .textWrapper {
@@ -34,19 +42,4 @@
     font-size: 1.2vmax;
     color: black;
     margin:0;
-}
-
-
-$s-min: 20;
-$s-max: 70;
-$l-min: 30;
-$l-max: 90;
-
-.fakePoster {
-    //background-color: yellow;
-    background-color: hsl(random(360),$s-min+random($s-max+-$s-min),$l-min+random($l-max+-$l-min));
-    //background-color: hsl(random(360),100%,50%);
-    height: 300px;
-    width: 200px;
-    width: 100%;
 }

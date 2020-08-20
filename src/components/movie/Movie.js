@@ -2,111 +2,94 @@ import React from 'react';
 import axios from 'axios'
 import styles from './Movie.scss';
 
+import Spinner from './Spinner.svg';
+
 class Movie extends React.Component {
- constructor(props) {
+ 	constructor(props) {
 		super(props)
-		this.state = {
-				isFetching: false,
-				posterSrc: '',	
+		
+		if(!props.movie.release_date) {
+			props.movie.release_date = props.movie.first_air_date;
 		}
- }
 
- componentDidMount() {
-	console.log("Component Movie did mount")
-	const monthNames = ["January", "February", "March", "April", "May", "June",
-	"July", "August", "September", "October", "November", "December"];
-	let d = new Date(this.props.movie.release_date)
-	let day = d.getDate()
-	let month = monthNames[d.getMonth()]
-	let year = d.getFullYear()
-	//let textReleaseDate = month + ' ' + day + ', ' + year
-	let textReleaseDate = "Jan" + ' ' + day + ', ' + year
+		const monthNames = ["January", "February", "March", "April", "May", "June",
+		"July", "August", "September", "October", "November", "December"];
+		let d = new Date(props.movie.release_date)
+		let day = d.getDate()
+		let month = monthNames[d.getMonth()]
+		let year = d.getFullYear()
+		let textReleaseDate = month.slice(0, 3) + ' ' + day + ', ' + year
 
-	this.props.movie.release_date = textReleaseDate
+		props.movie.release_date = textReleaseDate
 
-	let posterPath = this.props.movie.poster_path
-	let source = "https://image.tmdb.org/t/p/w500"
-	let posterUrl = new URL(source + posterPath)
+		if(!props.movie.title) {
+			props.movie.title = props.movie.name
+		}
 
-	fetch(posterUrl)
-		.then((response) => {
-			return response.blob()
-		})
-		.then((blob) => {
-			console.log("Movie Fetched")
+		this.state = {
+			isFetching: true,
+			posterSrc: '',
+			error: null
+		}
+ 	}
+
+ 	render() {
+		const {movie} = this.props
+		const {posterSrc, isFetching, error} = this.state
+	
+		const poster1 = isFetching ?
+							<img className = {styles.poster} src={Spinner} alt="Spinner"></img> :
+							<img className = {styles.poster} src={posterSrc}/>
+
+		const poster = isFetching ?
+						<img className = {styles.poster} src={Spinner} alt="Spinner"></img>  :
+						error ?
+							<div className = {styles.poster}>
+								<div className = {styles.error}>
+									<p>{error.message}</p>
+								</div>
+							</div> :
+							<img className = {styles.poster} src={posterSrc}/>
+
+		return (
+			<div className = {styles.card}>
+				{poster}
+				<div className = {styles.textWrapper}>
+					<h2>{movie.title}</h2>
+					<p>{movie.release_date}</p>
+					<p>{movie.vote_average}</p>
+				</div>
+			</div>
+		)
+ 	}
+
+ 	componentDidMount() {
+		this.fetchPoster();
+	}
+
+	async fetchPosterAsync() {
+		let posterPath = this.props.movie.poster_path
+		let source = "https://image.tmdb.org/t/p/w500"
+		let posterUrl = new URL(source + posterPath)
+
+		try {
+			this.setState({...this.state, isFetching: true});
+
+			const response = await axios.get(posterUrl, {responseType: 'blob'});
+			const blob = new Blob([response.data], {type:'image/png'})
 			this.setState({
 				posterSrc: URL.createObjectURL(blob),
 				isFetching: false
-			})
-		})
-		.catch((error) => {
-			console.log(error, "catch the hoop in img")
-		})
-	
-	}
-
- render() {
-	console.log("Movie rendered")
-	const {movie} = this.props
-	const {posterSrc, isFetching} = this.state
-
-	//const posterStyle = isFetching ?
-	//				styles.fakePoster:
-	//				styles.poster
-
-	const poster = isFetching ?
-					<div className = {styles.fakePoster}/> :
-					<img className = {styles.poster} src={posterSrc}/>
-
-	//console.dir(posterStyle)
-	//const style = {width: '50%'}
-	//const body = isOpen && <section className="card-text">{article.text}</section>
-	return (
-		<div className = {styles.card}>
-			{poster}
-			<div className = {styles.textWrapper}>
-				<h2>{movie.title}</h2>
-				<p>{movie.release_date}</p>
-				<p>{movie.vote_average}</p>
-			</div>
-		</div>
-	)
- }
-
- onClick = () => {
-	// let url = new URL('https://api.themoviedb.org/3/search/movie?api_key=2d25061be0452561bdee3add77a025ce&language=en-US&query=Avengers&include_adult=true');
-	// fetch(url)
-	// 	.then((response) => {
-	// 		return response.json()
-	// 	})
-	// 	.then((data) => {
-	// 		console.log(data)
-	// 	})
-	// 	.catch((error) => {
-	// 		console.log(error, "catch the hoop")
-	// 	})
-
-	// let imgUrl = new URL('https://image.tmdb.org/t/p/w500/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg')
-	// fetch(imgUrl)
-	// 	.then((response) => {
-	// 		return response.blob()
-	// 	})
-	// 	.then((blob) => {
-	// 		console.log(blob)
-	// 		this.setState({
-	// 			imgSrc: URL.createObjectURL(blob)
-	// 		})
-	// 	})
-	// 	.catch((error) => {
-	// 		console.log(error, "catch the hoop in img")
-	// 	})
- }
-
- onLinkLeave = () => {
-	// this.setState({
-	// 	onLinkEntered: false
-	// })
-	//console.log(this.state.onLinkEntered);
- }
+			});
+		} catch (e) {
+			console.log(e, "catch the hoop")
+			this.setState({
+			...this.state, 
+			isFetching: false,
+			error: e 
+			});
+		}
+	};
+	fetchPoster = this.fetchPosterAsync
 }
 export default Movie
