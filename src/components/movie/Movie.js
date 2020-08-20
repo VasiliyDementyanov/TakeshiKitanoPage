@@ -57,7 +57,7 @@ class Movie extends React.Component {
 				<div className = {styles.textWrapper}>
 					<h2>{movie.title}</h2>
 					<p>{movie.release_date}</p>
-					<p>{movie.vote_average}</p>
+					<p>{"Average vote : " + movie.vote_average}</p>
 				</div>
 			</div>
 		)
