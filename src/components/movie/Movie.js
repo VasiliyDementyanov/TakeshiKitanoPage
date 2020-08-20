@@ -27,7 +27,7 @@ class Movie extends React.Component {
 		}
 
 		this.state = {
-			isFetching: true,
+			isFetching: false,
 			posterSrc: '',
 			error: null
 		}
@@ -36,10 +36,6 @@ class Movie extends React.Component {
  	render() {
 		const {movie} = this.props
 		const {posterSrc, isFetching, error} = this.state
-	
-		const poster1 = isFetching ?
-							<img className = {styles.poster} src={Spinner} alt="Spinner"></img> :
-							<img className = {styles.poster} src={posterSrc}/>
 
 		const poster = isFetching ?
 						<img className = {styles.poster} src={Spinner} alt="Spinner"></img>  :
