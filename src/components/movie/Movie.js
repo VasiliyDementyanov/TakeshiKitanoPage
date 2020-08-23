@@ -20,7 +20,7 @@ class Movie extends React.Component {
 		let year = d.getFullYear()
 		let textReleaseDate = month.slice(0, 3) + ' ' + day + ', ' + year
 
-		props.movie.release_date = textReleaseDate
+		props.movie.release_date_text = textReleaseDate
 
 		if(!props.movie.title) {
 			props.movie.title = props.movie.name
@@ -31,9 +31,12 @@ class Movie extends React.Component {
 			posterSrc: '',
 			error: null
 		}
+
+		console.log("Movie constructor")
  	}
 
  	render() {
+		console.log("Movie render")
 		const {movie} = this.props
 		const {posterSrc, isFetching, error} = this.state
 
@@ -52,7 +55,7 @@ class Movie extends React.Component {
 				{poster}
 				<div className = {styles.textWrapper}>
 					<h2>{movie.title}</h2>
-					<p>{movie.release_date}</p>
+					<p>{movie.release_date_text}</p>
 					<p>{"Average vote : " + movie.vote_average}</p>
 				</div>
 			</div>
