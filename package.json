@@ -1,7 +1,7 @@
 {
   "name": "TakeshiKitanoPage",
   "version": "1.0.0",
-  "description": "Created according with:\r https://medium.com/@imranhsayed/set-up-react-app-with-webpack-webpack-dev-server-and-babel-from-scratch-df398174446d",
+  "description": "TakeshiKitanoPage",
   "main": "index.js",
   "scripts": {
     "webpack-dev-server": "webpack-dev-server",

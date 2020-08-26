@@ -9,7 +9,7 @@ class Welcome extends React.Component {
 					<h1>WELCOME TO<br/>TAKESHI KITANO PAGE</h1>
 				</div>
 				<div>
-					<p>This page I have created in order to show you my knowledge of React, JavaScript, HTML, CSS.</p>
+					<p>This page I have created in order to show my knowledge of React, JavaScript, HTML and CSS.</p>
 				</div>
 			</div>
 		);
