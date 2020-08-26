@@ -1,6 +1,6 @@
 # Takeshi Kitano page
 
-**Takeshi Kitano** is a Japanese comedian, television presenter, actor, filmmaker, and author. 
+**Takeshi Kitano** is a Japanese comedian, television presenter, actor, filmmaker, and author.  
 I like movies he made and I have decided to create this page in order to show my knowledge of **React, webpack, JavaScript, HTML and CSS.**
 
 Here you can find [Figma project](https://www.figma.com/file/9Tf8QuoCipEiX3PnP9CNcR/Takeshi-Kitano) (you can also run prototype).
