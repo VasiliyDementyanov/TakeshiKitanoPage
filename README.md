@@ -9,8 +9,10 @@ In this project I'm using [The Movie Database (TMDb) API](https://developers.the
 
 ## Installation
 
-**Clone** repo to your local machine using:
-`https://github.com/dementr80/TakeshiKitanoPage.git`
+**Clone** a repository to your local machine:
+```shell
+$ git clone https://github.com/dementr80/TakeshiKitanoPage.git
+```
 
 **Go to** project folder:
 ```shell
