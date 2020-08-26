@@ -1,27 +1,24 @@
-import React from 'react';
-import axios from 'axios'
-import styles from './MoviesHOC.scss';
-import MoviesGrid from '../moviesGrid/MoviesGrid'
+import React 	  from 'react';
+import axios 	  from 'axios';
+import styles 	  from './MoviesHOC.scss';
+import MoviesGrid from '../moviesGrid/MoviesGrid';
 
 class MoviesHOC extends React.Component {
 	constructor(props) {
-		super(props)
+		super(props);
 
-		this.sortByNew = 		 this.sortByNew.bind(this)
-		this.sortByOld = 		 this.sortByOld.bind(this)
-		this.sortByAverageVote = this.sortByAverageVote.bind(this)
+		this.sortByNew = 		 this.sortByNew.bind(this);
+		this.sortByOld = 		 this.sortByOld.bind(this);
+		this.sortByAverageVote = this.sortByAverageVote.bind(this);
 		this.state = {
 			movies: [],
 			isFetching: false,
 			error: null
 		}
-		console.log("MovieHOC constructor")
 	}
 
 	render() {
-		console.log("MovieHOC render")
-		console.dir(this.state.movies)
-        const { movies, isFetching, error } = this.state
+        const { movies, isFetching, error } = this.state;
 
 		const body = isFetching ?
 						<div className = {styles.message}>
@@ -39,7 +36,7 @@ class MoviesHOC extends React.Component {
             <div>
                 {body}
             </div>
-		)
+		);
  	}
 
 	componentDidMount() {
@@ -47,10 +44,10 @@ class MoviesHOC extends React.Component {
 	}
 
 	async fetchMoviesAsync() {
-		let apiUrl = 'https://api.themoviedb.org/3/'
-		let parameters = 'person/3317/combined_credits?'
-		let apiKey = 'api_key=2d25061be0452561bdee3add77a025ce'
-		let language = '&language=en-US'
+		let apiUrl = 'https://api.themoviedb.org/3/';
+		let parameters = 'person/3317/combined_credits?';
+		let apiKey = 'api_key=2d25061be0452561bdee3add77a025ce';
+		let language = '&language=en-US';
 		let url = new URL(apiUrl + parameters + apiKey + language);
 
         try {
@@ -61,7 +58,6 @@ class MoviesHOC extends React.Component {
 				isFetching: false
 			});
         } catch (e) {
-            console.log(e, "catch the hoop")
             this.setState({
 				...this.state, 
 				isFetching: false,
@@ -70,7 +66,7 @@ class MoviesHOC extends React.Component {
         }
     };
 
-	fetchMovies = this.fetchMoviesAsync
+	fetchMovies = this.fetchMoviesAsync;
 	
 	dynamicsort(property,order="desc") {
 		let sort_order = 1;
@@ -79,15 +75,14 @@ class MoviesHOC extends React.Component {
 		}
 
 		return function (a, b) {
-
 			let valA;
 			let valB;
 			if(property === "release_date") {
-				valA = new Date(a[property])
-				valB = new Date(b[property])
+				valA = new Date(a[property]);
+				valB = new Date(b[property]);
 			} else {
-				valA = a[property]
-				valB = b[property]
+				valA = a[property];
+				valB = b[property];
 			}
 
 			if(valA < valB) {
@@ -101,24 +96,21 @@ class MoviesHOC extends React.Component {
 	}
 
 	sortByNew() {
-		console.log("SortByNew")
 		this.setState({
 			movies: this.state.movies.sort(this.dynamicsort("release_date","desc"))
 		});
 	}
 
 	sortByOld() {
-		console.log("SortByOld")
 		this.setState({
 			movies: this.state.movies.sort(this.dynamicsort("release_date","asc"))
 		});
 	}
 
 	sortByAverageVote() {
-		console.log("SortByAverageVote")
 		this.setState({
 			movies: this.state.movies.sort(this.dynamicsort("vote_average","desc"))
 		});
 	}
 }
-export default MoviesHOC
+export default MoviesHOC;

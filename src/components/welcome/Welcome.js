@@ -3,7 +3,7 @@ import styles   from './Welcome.scss';
 
 class Welcome extends React.Component {
 	render() {
-  		return(
+  		return (
 			<div className={styles.flexContainer}>
 				<div>
 					<h1>WELCOME TO<br/>TAKESHI KITANO PAGE</h1>
@@ -15,4 +15,4 @@ class Welcome extends React.Component {
 		);
  	}
 }
-export default Welcome
+export default Welcome;

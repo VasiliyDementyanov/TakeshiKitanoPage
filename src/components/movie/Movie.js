@@ -1,5 +1,5 @@
-import React from 'react';
-import axios from 'axios'
+import React  from 'react';
+import axios  from 'axios';
 import styles from './Movie.scss';
 
 import Spinner from './Spinner.svg';
@@ -14,16 +14,16 @@ class Movie extends React.Component {
 
 		const monthNames = ["January", "February", "March", "April", "May", "June",
 		"July", "August", "September", "October", "November", "December"];
-		let d = new Date(props.movie.release_date)
-		let day = d.getDate()
-		let month = monthNames[d.getMonth()]
-		let year = d.getFullYear()
-		let textReleaseDate = month.slice(0, 3) + ' ' + day + ', ' + year
+		let d = new Date(props.movie.release_date);
+		let day = d.getDate();
+		let month = monthNames[d.getMonth()];
+		let year = d.getFullYear();
+		let textReleaseDate = month.slice(0, 3) + ' ' + day + ', ' + year;
 
-		props.movie.release_date_text = textReleaseDate
+		props.movie.release_date_text = textReleaseDate;
 
 		if(!props.movie.title) {
-			props.movie.title = props.movie.name
+			props.movie.title = props.movie.name;
 		}
 
 		this.state = {
@@ -31,14 +31,11 @@ class Movie extends React.Component {
 			posterSrc: '',
 			error: null
 		}
-
-		console.log("Movie constructor")
  	}
 
  	render() {
-		console.log("Movie render")
-		const {movie} = this.props
-		const {posterSrc, isFetching, error} = this.state
+		const {movie} = this.props;
+		const {posterSrc, isFetching, error} = this.state;
 
 		const poster = isFetching ?
 						<img className = {styles.poster} src={Spinner} alt="Spinner"></img>  :
@@ -49,7 +46,6 @@ class Movie extends React.Component {
 								</div>
 							</div> :
 							<img className = {styles.poster} src={posterSrc}/>
-
 		return (
 			<div className = {styles.card}>
 				{poster}
@@ -59,7 +55,7 @@ class Movie extends React.Component {
 					<p>{"Average vote : " + movie.vote_average}</p>
 				</div>
 			</div>
-		)
+		);
  	}
 
  	componentDidMount() {
@@ -67,21 +63,20 @@ class Movie extends React.Component {
 	}
 
 	async fetchPosterAsync() {
-		let posterPath = this.props.movie.poster_path
-		let source = "https://image.tmdb.org/t/p/w500"
-		let posterUrl = new URL(source + posterPath)
+		let posterPath = this.props.movie.poster_path;
+		let source = "https://image.tmdb.org/t/p/w500";
+		let posterUrl = new URL(source + posterPath);
 
 		try {
 			this.setState({...this.state, isFetching: true});
 
 			const response = await axios.get(posterUrl, {responseType: 'blob'});
-			const blob = new Blob([response.data], {type:'image/png'})
+			const blob = new Blob([response.data], {type:'image/png'});
 			this.setState({
 				posterSrc: URL.createObjectURL(blob),
 				isFetching: false
 			});
 		} catch (e) {
-			console.log(e, "catch the hoop")
 			this.setState({
 			...this.state, 
 			isFetching: false,
@@ -89,6 +84,6 @@ class Movie extends React.Component {
 			});
 		}
 	};
-	fetchPoster = this.fetchPosterAsync
+	fetchPoster = this.fetchPosterAsync;
 }
-export default Movie
+export default Movie;

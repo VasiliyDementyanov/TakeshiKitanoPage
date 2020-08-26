@@ -1,5 +1,5 @@
-import React from 'react';
-import text from './text'
+import React  from 'react';
+import text   from './text';
 import styles from './Biography.scss';
 
 import TakeshiKitano from './TakeshiKitano.jpg';
@@ -18,7 +18,7 @@ class Biography extends React.Component {
 					<img src={TakeshiKitano} className={styles.img} alt="Takeshi Kitano"/>
 				</div>
 			</div>
-		)
+		);
  	}
 }
-export default Biography
+export default Biography;

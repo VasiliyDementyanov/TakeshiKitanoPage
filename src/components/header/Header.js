@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
-import styles from './Header.scss';
-
-import GlobeIcon from './globe.svg';
+import { Link }             from 'react-router-dom';
+import styles               from './Header.scss';
 
 class Header extends Component {
   render() {
@@ -26,14 +24,6 @@ class Header extends Component {
                   </li>
                   <li className="nav-item active" data-toggle="collapse" data-target=".navbar-collapse.show">
                     <Link className={["nav-link", styles.customNavLink].join(" ")} to='/Biography'>Biography</Link>
-                  </li>
-                </ul>
-                <ul className="navbar-nav ml-auto mr-4">
-                  <li className="nav-item active mr-2" style={{color: "#ffffff"}}>
-                    <a className={["nav-link", styles.customNavLink].join(" ")}>Light</a>
-                  </li>
-                  <li className="nav-item mt-1">
-                    <img src={GlobeIcon} width="30" height="30" alt="GlobeIcon"></img>
                   </li>
                 </ul>
               </div>
