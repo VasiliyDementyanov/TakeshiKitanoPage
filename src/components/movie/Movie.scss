@@ -43,3 +43,30 @@
     color: black;
     margin:0;
 }
+
+@media screen and (max-width: 603px) { 
+    .textWrapper > h2 {
+        font-size: 4vmax;
+    }
+    .textWrapper > p {
+        font-size: 100%;
+    }
+}
+
+@media screen and (max-width: 876px) and (min-width: 604px) {
+    .textWrapper > h2 {
+        font-size: 3vmax;
+    }
+    .textWrapper > p {
+        font-size: 100%;
+    }
+}
+
+@media screen and (max-width: 1300px) and (min-width: 877px) {
+    .textWrapper > h2 {
+        font-size: 2.5vmax;
+    }
+    .textWrapper > p {
+        font-size: 100%;
+    }
+}

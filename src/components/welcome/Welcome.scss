@@ -4,8 +4,9 @@
 .flexContainer {
 	display: flex;
 	flex-direction: column;
-	margin-left: 9vw;
 	margin-top: 11vh;
+	margin-left: 9vw;
+	margin-right: 9vw;
   }
 
 .flexContainer > div > h1 {
