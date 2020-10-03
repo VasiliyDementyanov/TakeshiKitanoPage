@@ -7,7 +7,7 @@
     "webpack-dev-server": "webpack-dev-server",
     "dev": "webpack-dev-server --mode=development",
     "prod": "webpack --mode=production",
-    "start-server": "node server.js"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
