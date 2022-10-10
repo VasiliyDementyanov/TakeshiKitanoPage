@@ -44,11 +44,11 @@ class MoviesHOC extends React.Component {
 	}
 
 	async fetchMoviesAsync() {
-		let apiUrl = 'https://api.themoviedb.org/3/';
-		let parameters = 'person/3317/combined_credits?';
-		let apiKey = 'api_key=2d25061be0452561bdee3add77a025ce';
-		let language = '&language=en-US';
-		let url = new URL(apiUrl + parameters + apiKey + language);
+		const apiUrl = 'https://api.themoviedb.org/3/';
+		const parameters = 'person/3317/combined_credits?';
+		const apiKey = 'api_key=2d25061be0452561bdee3add77a025ce';
+		const language = '&language=en-US';
+		const url = new URL(apiUrl + parameters + apiKey + language);
 
         try {
             this.setState({...this.state, isFetching: true});
