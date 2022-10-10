@@ -8,7 +8,7 @@ class Movie extends React.Component {
  	constructor(props) {
 		super(props);
 
-		const dateIsNotPresented = "Date is not presented";
+		const dateIsNotPresented = "Date is not provided";
 		
 		if(props.movie.hasOwnProperty("release_date") && props.movie.release_date !== "") {
 			const monthNames = ["January", "February", "March", "April", "May", "June",
@@ -41,10 +41,8 @@ class Movie extends React.Component {
 		const poster = isFetching ?
 						<img className = {styles.poster} src={Spinner} alt="Spinner"></img>  :
 						error ?
-							<div className = {styles.poster}>
-								<div className = {styles.error}>
-									<p>{error.message}</p>
-								</div>
+							<div className = {styles.error}>
+								<p>{"Sorry, image is not provided"}</p>
 							</div> :
 							<img className = {styles.poster} src={posterSrc}/>
 		return (
@@ -83,7 +81,7 @@ class Movie extends React.Component {
 			isFetching: false,
 			error: e 
 			});
-		}
+		};
 	};
 	fetchPoster = this.fetchPosterAsync;
 }
