@@ -6,21 +6,22 @@ import Spinner from './Spinner.svg';
 
 class Movie extends React.Component {
  	constructor(props) {
-		super(props)
+		super(props);
+
+		const dateIsNotPresented = "Date is not presented";
 		
-		if(!props.movie.release_date) {
-			props.movie.release_date = props.movie.first_air_date;
-		}
-
-		const monthNames = ["January", "February", "March", "April", "May", "June",
-		"July", "August", "September", "October", "November", "December"];
-		let d = new Date(props.movie.release_date);
-		let day = d.getDate();
-		let month = monthNames[d.getMonth()];
-		let year = d.getFullYear();
-		let textReleaseDate = month.slice(0, 3) + ' ' + day + ', ' + year;
-
-		props.movie.release_date_text = textReleaseDate;
+		if(props.movie.hasOwnProperty("release_date") && props.movie.release_date !== "") {
+			const monthNames = ["January", "February", "March", "April", "May", "June",
+			"July", "August", "September", "October", "November", "December"];
+			const d = new Date(props.movie.release_date);
+			const day = d.getDate();
+			const month = monthNames[d.getMonth()];
+			const year = d.getFullYear();
+			const textReleaseDate = month.slice(0, 3) + ' ' + day + ', ' + year;
+			props.movie.release_date_text = textReleaseDate;
+		} else {
+			props.movie.release_date_text = dateIsNotPresented;
+		};
 
 		if(!props.movie.title) {
 			props.movie.title = props.movie.name;
