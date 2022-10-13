@@ -10,23 +10,28 @@ In this project I'm using [The Movie Database (TMDb) API](https://developers.the
 ## Installation
 
 **Clone** a repository to your local machine:
+
 ```shell
 $ git clone https://github.com/dementr80/TakeshiKitanoPage.git
 ```
 
 **Go to** project folder:
+
 ```shell
 $ cd TakeshiKitanoPage
 ```
 
 **Install** dependencies:
+
 ```shell
 $ npm install
 ```
 
 **Run** script:
+
 ```shell
 $ npm run dev
 ```
-You can find app on 
+
+You can find app on
 http://localhost:8080/

@@ -1,9 +1,9 @@
-.contentWrapper {  
+.contentWrapper {
   display: flex;
   flex-wrap: wrap;
   margin-top: 15px;
-	margin-left: 25px;
-	margin-right: 25px;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 
 .side {
@@ -21,14 +21,14 @@
   width: 100%;
 }
 
-@media screen and (max-width: 603px) { 
-  .contentWrapper {   
+@media screen and (max-width: 603px) {
+  .contentWrapper {
     flex-direction: column;
   }
 }
 
 @media screen and (max-width: 876px) and (min-width: 604px) {
-  .contentWrapper {   
+  .contentWrapper {
     flex-direction: column;
   }
 }

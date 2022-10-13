@@ -1,74 +1,74 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
 .card {
-    display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .poster {
-    width: 100%;
-    border-radius: 10px;
+  width: 100%;
+  border-radius: 10px;
 }
 
 .error {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 75%;
-    border-radius: 10px;
-    background: rgb(241, 242, 243);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 75%;
+  border-radius: 10px;
+  background: rgb(241, 242, 243);
 }
 
 .textWrapper {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-    margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-left: 15px;
 }
 
 .textWrapper > h2 {
-	font-family: 'Roboto', sans-serif;
-	font-style: normal;
-	font-weight: 700;
-	font-size: 2vmax;
-    color: black;
-    margin:0;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2vmax;
+  color: black;
+  margin: 0;
 }
 
 .textWrapper > p {
-	font-family: 'Open Sans', sans-serif;
-	font-style: normal;
-    font-weight: 400;
-    font-size: 1.2vmax;
-    color: black;
-    margin:0;
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.2vmax;
+  color: black;
+  margin: 0;
 }
 
-@media screen and (max-width: 603px) { 
-    .textWrapper > h2 {
-        font-size: 4vmax;
-    }
-    .textWrapper > p {
-        font-size: 100%;
-    }
+@media screen and (max-width: 603px) {
+  .textWrapper > h2 {
+    font-size: 4vmax;
+  }
+  .textWrapper > p {
+    font-size: 100%;
+  }
 }
 
 @media screen and (max-width: 876px) and (min-width: 604px) {
-    .textWrapper > h2 {
-        font-size: 3vmax;
-    }
-    .textWrapper > p {
-        font-size: 100%;
-    }
+  .textWrapper > h2 {
+    font-size: 3vmax;
+  }
+  .textWrapper > p {
+    font-size: 100%;
+  }
 }
 
 @media screen and (max-width: 1300px) and (min-width: 877px) {
-    .textWrapper > h2 {
-        font-size: 2.5vmax;
-    }
-    .textWrapper > p {
-        font-size: 100%;
-    }
+  .textWrapper > h2 {
+    font-size: 2.5vmax;
+  }
+  .textWrapper > p {
+    font-size: 100%;
+  }
 }
